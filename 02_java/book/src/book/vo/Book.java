@@ -1,5 +1,5 @@
 package book.vo;
-import java.math.BigInteger;
+
 
 
 /**
@@ -9,14 +9,16 @@ import java.math.BigInteger;
  */
 public class Book {
 	
-	private BigInteger bookSeq;
+	private int bookSeq;
 	private String isbn;
 	private String title;
 	private String author;
 	private String content;
-	private BigInteger companyCd;
-	private BigInteger totalpage;
-	private BigInteger quantity;
+	private int companyCd;
+	private String companyNm;	
+	private int totalpage;
+	private int price;
+	private int quantity;
 	private String regId;
 	private String regDate;
 	private String modId;
@@ -26,11 +28,11 @@ public class Book {
 		
 	}
 
-	public BigInteger getBookSeq() {
+	public int getBookSeq() {
 		return bookSeq;
 	}
 
-	public void setBookSeq(BigInteger bookSeq) {
+	public void setBookSeq(int bookSeq) {
 		this.bookSeq = bookSeq;
 	}
 
@@ -66,27 +68,45 @@ public class Book {
 		this.content = content;
 	}
 
-	public BigInteger getCompanyCd() {
+	public int getCompanyCd() {
 		return companyCd;
 	}
 
-	public void setCompanyCd(BigInteger companyCd) {
+	public void setCompanyCd(int companyCd) {
 		this.companyCd = companyCd;
 	}
 
-	public BigInteger getTotalpage() {
+	
+	public String getCompanyNm() {
+		return companyNm;
+	}
+
+	public void setCompanyNm(String companyNm) {
+		this.companyNm = companyNm;
+	}
+
+	public int getTotalpage() {
 		return totalpage;
 	}
 
-	public void setTotalpage(BigInteger totalpage) {
+	public void setTotalpage(int totalpage) {
 		this.totalpage = totalpage;
 	}
 
-	public BigInteger getQuantity() {
+	
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(BigInteger quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -121,12 +141,22 @@ public class Book {
 	public void setModDate(String modDate) {
 		this.modDate = modDate;
 	}
+
 	
+
+	@Override
+	public String toString() {
+		return "Book [bookSeq=" + bookSeq + ", isbn=" + isbn + ", title=" + title + ", author=" + author + ", content="
+				+ content + ", companyCd=" + companyCd + ", companyNm=" + companyNm + ", totalpage=" + totalpage
+				+ ", price=" + price + ", quantity=" + quantity + ", regId=" + regId + ", regDate=" + regDate
+				+ ", modId=" + modId + ", modDate=" + modDate + "]";
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((bookSeq == null) ? 0 : bookSeq.hashCode());
+		result = prime * result + bookSeq;
 		return result;
 	}
 
@@ -139,23 +169,9 @@ public class Book {
 		if (getClass() != obj.getClass())
 			return false;
 		Book other = (Book) obj;
-		if (bookSeq == null) {
-			if (other.bookSeq != null)
-				return false;
-		} else if (!bookSeq.equals(other.bookSeq))
+		if (bookSeq != other.bookSeq)
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Book [bookSeq=" + bookSeq + ", isbn=" + isbn + ", title=" + title + ", author=" + author + ", content="
-				+ content + ", companyCd=" + companyCd + ", totalpage=" + totalpage + ", quantity=" + quantity
-				+ ", regId=" + regId + ", regDate=" + regDate + ", modId=" + modId + ", modDate=" + modDate + "]";
-	}
-	
-	
-	
-	
 	
 }

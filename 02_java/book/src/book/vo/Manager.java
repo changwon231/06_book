@@ -1,10 +1,10 @@
 package book.vo;
 
-import java.math.BigInteger;
+
 
 public class Manager {
 
-	private BigInteger managerSeq;
+	private int managerSeq;
 	private String managerId;
 	private String name;
 	private String password;
@@ -17,11 +17,11 @@ public class Manager {
 		
 	}
 
-	public BigInteger getManagerSeq() {
+	public int getManagerSeq() {
 		return managerSeq;
 	}
 
-	public void setManagerSeq(BigInteger managerSeq) {
+	public void setManagerSeq(int managerSeq) {
 		this.managerSeq = managerSeq;
 	}
 
@@ -81,11 +81,12 @@ public class Manager {
 		this.modDate = modDate;
 	}
 
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((managerId == null) ? 0 : managerId.hashCode());
+		result = prime * result + managerSeq;
 		return result;
 	}
 
@@ -98,10 +99,7 @@ public class Manager {
 		if (getClass() != obj.getClass())
 			return false;
 		Manager other = (Manager) obj;
-		if (managerId == null) {
-			if (other.managerId != null)
-				return false;
-		} else if (!managerId.equals(other.managerId))
+		if (managerSeq != other.managerSeq)
 			return false;
 		return true;
 	}
